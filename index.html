@@ -1,0 +1,39 @@
+<body>
+
+<h1>Квест по Нарнии</h1>
+
+<iframe
+    width="800"
+    height="450"
+    src="https://youtube.com/shorts/Pq_-yEEtK8M?feature=share"
+    title="YouTube video player"
+    frameborder="0"
+    allowfullscreen>
+</iframe>
+
+<h2>Напиши сюда пароль:</h2>
+
+<input id="passwordInput" type="text">
+<button onclick="checkPassword()">Проверить</button>
+
+<div id="result"></div>
+
+<script>
+const correctPassword =
+"Мистер Бобр знает дорогу к Каменному столу";
+
+function checkPassword() {
+    const text =
+        document.getElementById("passwordInput").value.trim();
+
+    if (text === correctPassword) {
+        document.getElementById("result").innerHTML =
+            "✅ Пароль верный! Следующая подсказка: ищите красную ленточку возле фонаря.";
+    } else {
+        document.getElementById("result").innerHTML =
+            "❌ Пароль неверный.";
+    }
+}
+</script>
+
+</body>
