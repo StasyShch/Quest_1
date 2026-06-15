@@ -151,18 +151,25 @@
   <script>
     const correctPassword = "Мистер Бобр знает дорогу к Каменному столу";
 
-    function checkPassword() {
-      const userText = document.getElementById("passwordInput").value.trim();
-
-      if (userText === correctPassword) {
-        document.getElementById("result").innerHTML =
-          "✅ Пароль верный!<br>Следующая подсказка: ищите красную ленточку возле фонаря.";
-      } else {
-        document.getElementById("result").innerHTML =
-          "❌ Пароль неверный. Попробуйте ещё раз!";
-      }
+    function normalizeText(text) {
+        return text
+            .trim()                 // remove leading/trailing spaces
+            .replace(/\s+/g, " ")   // replace multiple spaces with one
+            .toLowerCase();         // ignore upper/lower case
     }
-  </script>
+
+    function checkPassword() {
+        const userText = document.getElementById("passwordInput").value;
+
+        if (normalizeText(userText) === normalizeText(correctPassword)) {
+            document.getElementById("result").innerHTML =
+                "✅ Пароль верный!<br> Запишите буквы О, Н, Я. Следуйте на поиски Мистера Бобра, советую поискать у воды ";
+        } else {
+            document.getElementById("result").innerHTML =
+                "❌ Пароль неверный. Попробуйте ещё раз!";
+        }
+    }
+</script>
 
 </body>
 </html>
