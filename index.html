@@ -1,39 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Квест по Нарнии</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', serif;
+      text-align: center;
+      color: #2b2b2b;
+      background: linear-gradient(#dcefff, #ffffff);
+      min-height: 100vh;
+      padding: 30px;
+    }
+
+    .card {
+      max-width: 750px;
+      margin: 40px auto;
+      padding: 35px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 3px solid #b8d8f0;
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(80, 120, 160, 0.35);
+    }
+
+    h1 {
+      font-size: 42px;
+      color: #234b6d;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      color: #5a6f82;
+      margin-bottom: 30px;
+    }
+
+    .snow {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .video-button {
+      display: inline-block;
+      margin: 25px 0;
+      padding: 18px 34px;
+      background: #234b6d;
+      color: white;
+      text-decoration: none;
+      border-radius: 18px;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0 6px 0 #17344d;
+    }
+
+    .video-button:hover {
+      background: #2f628d;
+    }
+
+    h2 {
+      color: #234b6d;
+      margin-top: 30px;
+    }
+
+    input {
+      padding: 14px;
+      font-size: 20px;
+      width: 85%;
+      max-width: 520px;
+      border-radius: 12px;
+      border: 2px solid #9dbbd3;
+      text-align: center;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    button {
+      margin-top: 18px;
+      padding: 14px 28px;
+      font-size: 20px;
+      border-radius: 12px;
+      border: none;
+      background: #7b2f2f;
+      color: white;
+      cursor: pointer;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: bold;
+      box-shadow: 0 5px 0 #501d1d;
+    }
+
+    button:hover {
+      background: #963b3b;
+    }
+
+    #result {
+      margin-top: 28px;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+    .footer {
+      margin-top: 35px;
+      font-size: 18px;
+      color: #5a6f82;
+    }
+  </style>
+</head>
+
 <body>
 
-<h1>Квест по Нарнии</h1>
+  <div class="card">
 
-<iframe
-    width="800"
-    height="450"
-    src="https://youtube.com/shorts/Pq_-yEEtK8M?feature=share"
-    title="YouTube video player"
-    frameborder="0"
-    allowfullscreen>
-</iframe>
+    <div class="snow">❄️ 🕯️ 🦁 ❄️</div>
 
-<h2>Напиши сюда пароль:</h2>
+    <h1>Квест по Нарнии</h1>
 
-<input id="passwordInput" type="text">
-<button onclick="checkPassword()">Проверить</button>
+    <p class="subtitle">
+      Тайная подсказка спрятана в послании зимней птицы.
+    </p>
 
-<div id="result"></div>
+    <p>
+      Посмотрите видео, внимательно выслушайте подсказку
+      и передайте пароль дальше, не перепутав ни одного слова.
+    </p>
 
-<script>
-const correctPassword =
-"Мистер Бобр знает дорогу к Каменному столу";
+    <a class="video-button"
+       href="https://youtube.com/shorts/Pq_-yEEtK8M"
+       target="_blank">
+      🐦 Посмотреть послание птицы
+    </a>
 
-function checkPassword() {
-    const text =
-        document.getElementById("passwordInput").value.trim();
+    <h2>Напишите сюда пароль:</h2>
 
-    if (text === correctPassword) {
+    <input id="passwordInput" type="text" placeholder="Введите пароль">
+
+    <br>
+
+    <button onclick="checkPassword()">Проверить</button>
+
+    <div id="result"></div>
+
+    <p class="footer">
+      Помните: в Нарнии важны смелость, дружба и внимательность.
+    </p>
+
+  </div>
+
+  <script>
+    const correctPassword = "Когда растает вечная зима Аслан вернется в Нарнию";
+
+    function checkPassword() {
+      const userText = document.getElementById("passwordInput").value.trim();
+
+      if (userText === correctPassword) {
         document.getElementById("result").innerHTML =
-            "✅ Пароль верный! Следующая подсказка: ищите красную ленточку возле фонаря.";
-    } else {
+          "✅ Пароль верный!<br>Следующая подсказка: ищите красную ленточку возле фонаря.";
+      } else {
         document.getElementById("result").innerHTML =
-            "❌ Пароль неверный.";
+          "❌ Пароль неверный. Попробуйте ещё раз!";
+      }
     }
-}
-</script>
+  </script>
 
 </body>
+</html>
